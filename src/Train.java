@@ -1,4 +1,7 @@
 import validate.ValidateMethods;
+
+import java.util.Objects;
+
 import static validate.ValidateMethods.*;
 
 public class Train extends Transport{
@@ -27,13 +30,7 @@ public class Train extends Transport{
         this.wagonsCount = validateInteger(wagonsCount, 2);
     }
 
-    @Override
-    public void refill() {
-        setFuelPercentag(100);
-        System.out.println(getFuel());
-    }
-
-        //region getters/setters
+    //region getters/setters
 
     public Integer getTravelTime() {
         return travelTime;
@@ -70,6 +67,12 @@ public class Train extends Transport{
     //endregion
 
     @Override
+    public void refill() {
+        setFuelPercentag(100);
+        System.out.println(getFuel());
+    }
+
+    @Override
     public String toString() {
         return "Train {" +
                 "travelTime='" + travelTime  +
@@ -86,5 +89,16 @@ public class Train extends Transport{
                 ", fuel='" + getFuel() + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if(this == o) return true;
+        if(o == null || getClass() != o.getClass()) return false;
+        Train car = (Train) o;
+        return getBrand() == car.getBrand() && Objects.equals(getYear() ,car.getYear()) && Objects.equals(getModel() ,  car.getModel() );
+    }
+
+    @Override
+    public int hashCode() {return Objects.hash(getBrand() ,getYear() ,getModel());}
 
 }

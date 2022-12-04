@@ -1,3 +1,7 @@
+import animals.Bird;
+
+import java.util.Objects;
+
 import static validate.ValidateMethods.validateString;
 public abstract class Transport {
     private  final String brand;
@@ -21,8 +25,6 @@ public abstract class Transport {
         this.fuel = validateString(fuel,"petrol");
     }
 
-    public abstract void refill();
-
     // region getters-setters
     public String getBrand() {
         return brand;
@@ -31,7 +33,6 @@ public abstract class Transport {
     public String getFuel() {
         return fuel;
     }
-
     public String getModel() {
         return model;
     }
@@ -65,6 +66,7 @@ public abstract class Transport {
     }
 
     //endregion getters-setters
+    public abstract void refill();
 
     //region validation
     public static int validateYear (int value) {return value <= 1900 ? 2000 : value;}
@@ -89,4 +91,15 @@ public abstract class Transport {
                 ", color='" + color + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if(this == o) return true;
+        if(o == null || getClass() != o.getClass()) return false;
+        Transport car = (Transport) o;
+        return getBrand() == car.getBrand() && Objects.equals(getYear() ,car.getYear()) && Objects.equals(getModel() ,  car.getModel() );
+    }
+
+    @Override
+    public int hashCode() {return Objects.hash(getBrand() ,getYear() ,getModel());}
 }

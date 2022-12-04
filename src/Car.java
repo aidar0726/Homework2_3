@@ -1,3 +1,4 @@
+import java.util.Objects;
 import java.util.regex.Pattern;
 import static validate.ValidateMethods.validateString;
 
@@ -32,12 +33,6 @@ public class Car extends Transport {
 
     }
 
-    @Override
-    public void refill() {
-        setFuelPercentag(100);
-        System.out.println(getFuel());
-    }
-
     //region getters/setters
 
     public String getTransmission() {
@@ -61,6 +56,12 @@ public class Car extends Transport {
     }
 
     //endregion
+
+    @Override
+    public void refill() {
+        setFuelPercentag(100);
+        System.out.println(getFuel());
+    }
 
     //region validation
     public String validateCarNumber (String number) {
@@ -95,5 +96,16 @@ public class Car extends Transport {
                 ", fuel='" + getFuel() + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if(this == o) return true;
+        if(o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return getBrand() == car.getBrand() && Objects.equals(getYear() ,car.getYear()) && Objects.equals(getModel() ,  car.getModel() );
+    }
+
+    @Override
+    public int hashCode() {return Objects.hash(getBrand() ,getYear() ,getModel());}
 
 }

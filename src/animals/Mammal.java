@@ -1,5 +1,7 @@
 package animals;
 
+import java.util.Objects;
+
 import static validate.ValidateMethods.validateString;
 import static validate.ValidateMethods.validateInteger;
 
@@ -26,4 +28,15 @@ public abstract class Mammal extends Animal{
     }
 
     public abstract void walk();
+
+    @Override
+    public boolean equals(Object o) {
+        if(this == o) return true;
+        if(o == null || getClass() != o.getClass()) return false;
+        Mammal animal = (Mammal) o;
+        return getAge() == animal.getAge() && Objects.equals(getName() ,animal.getName()) && Objects.equals(getLivingEnvironment() ,  animal.getLivingEnvironment() );
+    }
+
+    @Override
+    public int hashCode() {return Objects.hash(getName() ,getAge() ,getLivingEnvironment());}
 }
