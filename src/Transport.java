@@ -41,6 +41,8 @@ public abstract class Transport {
     abstract void startToMove();
     abstract void finish();
 
+    abstract  void printType();
+
 
     @Override
     public String toString() {
