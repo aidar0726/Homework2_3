@@ -1,13 +1,9 @@
 public class Main {
     public static void main(String[] args) {
-    Car MersedesAmg = new Car ("Mersedes", "C200", 3,2,200,60);
-    System.out.println(MersedesAmg.toString());
-    MersedesAmg.getBestLapTime();
+    Car mersedesAmg = new Car ("Mersedes", "C200", 3,2,200,60,BodyType.CROSSOVER );
+    Truck shahman = new Truck ("Mersedes", "Shahman", 15,2,180,60,LoadCapacity.getValue(20));
 
-
-
-    DriverB kenNorton = new DriverB<>("Ken",true,5);
-        System.out.println(kenNorton.getCarMessage(MersedesAmg));
+    mersedesAmg.printType();
 
     }
 

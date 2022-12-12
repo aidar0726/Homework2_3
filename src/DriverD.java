@@ -1,4 +1,4 @@
-public class DriverD<T extends Bus> extends Driver{
+/*public class DriverD<T extends Bus> extends Driver{
     public DriverD(String name, Boolean hasLicense, Integer experience) {
         super(name, hasLicense, experience);
     }
@@ -16,3 +16,4 @@ public class DriverD<T extends Bus> extends Driver{
         return "Driver " + getName() + " is driving car " + bus.getBrand() + " " + bus.getModel() + " will participate in race";
     }
 }
+*/

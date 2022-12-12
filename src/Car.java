@@ -4,15 +4,36 @@ import static validate.ValidateMethods.validateString;
 
 public class Car extends Transport implements Competing{
 
-    private final Integer pitStopTime;
+    private  Integer pitStopTime;
     private final Integer maxSpeed;
-    private final Integer bestLapTime;
-    public Car(String brand, String model, double enginePower,Integer pitStopTime,Integer maxSpeed,Integer bestLapTime) {
+    private  Integer bestLapTime;
+
+    BodyType bodyType;
+
+
+    public Car(String brand, String model, double enginePower,Integer pitStopTime,Integer maxSpeed,Integer bestLapTime,BodyType bodyType) {
         super(brand,model,enginePower);
         this.pitStopTime = pitStopTime;
         this.maxSpeed = maxSpeed;
         this.bestLapTime = bestLapTime;
+        this.bodyType = bodyType;
     }
+
+    public BodyType getBodyType() {
+        return bodyType;
+    }
+
+    public void setSedan(BodyType sedan) {
+        this.bodyType = sedan;
+    }
+
+
+
+    @Override
+    public void printType() {
+        System.out.println(getBodyType());
+    }
+
 
     @Override
     void startToMove() {System.out.println("Car started");}

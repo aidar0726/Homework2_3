@@ -2,14 +2,26 @@ import java.util.Objects;
 
 public class Bus extends Transport implements Competing{
 
-    private final Integer pitStopTime;
+    private  Integer pitStopTime;
     private final Integer maxSpeed;
-    private final Integer bestLapTime;
-    public Bus(String brand, String model, double enginePower,Integer pitStopTime,Integer maxSpeed,Integer bestLapTime) {
+    private  Integer bestLapTime;
+
+    private Size size;
+    public Bus(String brand, String model, double enginePower,Integer pitStopTime,Integer maxSpeed,Integer bestLapTime,Size size) {
         super(brand,model,enginePower);
         this.pitStopTime = pitStopTime;
         this.maxSpeed = maxSpeed;
         this.bestLapTime = bestLapTime;
+        this.size = size;
+    }
+
+    public Size getSize() {
+        return size;
+    }
+
+    @Override
+    public void printType() {
+        System.out.println(getSize());
     }
 
     @Override

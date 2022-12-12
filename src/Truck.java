@@ -1,13 +1,29 @@
 public class Truck extends Transport implements Competing {
-    private final Integer pitStopTime;
+    private  Integer pitStopTime;
     private final Integer maxSpeed;
-    private final Integer bestLapTime;
+    private  Integer bestLapTime;
 
-    public Truck(String brand, String model, double enginePower, Integer pitStopTime, Integer maxSpeed, Integer bestLapTime) {
+    LoadCapacity carrying;
+
+    public Truck(String brand, String model, double enginePower, Integer pitStopTime, Integer maxSpeed, Integer bestLapTime,LoadCapacity carrying) {
         super(brand, model, enginePower);
         this.pitStopTime = pitStopTime;
         this.maxSpeed = maxSpeed;
         this.bestLapTime = bestLapTime;
+        this.carrying = carrying;
+    }
+
+    public LoadCapacity getCarrying() {
+        return carrying;
+    }
+
+    public void setCarrying(LoadCapacity carrying) {
+        this.carrying = carrying;
+    }
+
+    @Override
+    public void printType() {
+        System.out.println(getCarrying());
     }
 
     @Override
