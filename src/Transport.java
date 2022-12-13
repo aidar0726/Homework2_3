@@ -43,6 +43,7 @@ public abstract class Transport {
 
     abstract  void printType();
 
+    abstract boolean passDiagnostics();
 
     @Override
     public String toString() {

@@ -36,6 +36,12 @@ public class Car extends Transport implements Competing{
 
 
     @Override
+    public boolean passDiagnostics() {
+        return true;
+    };
+
+
+    @Override
     void startToMove() {System.out.println("Car started");}
 
     @Override

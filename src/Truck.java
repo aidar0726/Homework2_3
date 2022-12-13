@@ -17,9 +17,15 @@ public class Truck extends Transport implements Competing {
         return carrying;
     }
 
+
     public void setCarrying(LoadCapacity carrying) {
         this.carrying = carrying;
     }
+
+    @Override
+    public boolean passDiagnostics() {
+        return true;
+    };
 
     @Override
     public void printType() {

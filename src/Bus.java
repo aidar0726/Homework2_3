@@ -40,6 +40,12 @@ public class Bus extends Transport implements Competing{
     public void getMaxSpeed() {System.out.println("max speed is " + maxSpeed);}
 
     @Override
+    public boolean passDiagnostics() {
+        System.out.println("Автобусы не могут проходить диагностику");
+        return false;
+    };
+
+    @Override
     public String toString() {
         return "Bus {" +
                 "brand='" + getBrand() + '\''+
