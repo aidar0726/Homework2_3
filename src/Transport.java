@@ -1,5 +1,7 @@
 import animals.Bird;
+import java.util.ArrayList;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 import static validate.ValidateMethods.validateString;
@@ -7,6 +9,10 @@ public abstract class Transport {
     private  final String brand;
     private  final String model;
     private double enginePower;
+
+    ArrayList<Driver> drivers = new ArrayList<Driver>();
+    ArrayList<Sponsor> sponsors = new ArrayList<Sponsor>();
+    ArrayList<Мechanic> mechanics  = new ArrayList<Мechanic>();
 
 
     public Transport(String brand, String model, double enginePower) {
@@ -28,6 +34,17 @@ public abstract class Transport {
         return enginePower;
     }
 
+    public ArrayList<Driver> getDrivers() {
+        return drivers;
+    }
+
+    public ArrayList<Sponsor> getSponsors() {
+        return sponsors;
+    }
+
+    public ArrayList<Мechanic> getMechanics() {
+        return mechanics;
+    }
 
     //region validation
     public static String validateCarParametrs(String value) {return value == null ? "default" : value;}
@@ -44,6 +61,18 @@ public abstract class Transport {
     abstract  void printType();
 
     abstract boolean passDiagnostics();
+
+    public void addDriver(Driver...driver) {
+        this.drivers.addAll(Arrays.asList(driver));
+    }
+
+    public void addМechanic(Мechanic...mechanic) {
+        this.mechanics.addAll(Arrays.asList(mechanic));
+    }
+
+    public void addSponsor(Sponsor...sponsor) {
+        this.sponsors.addAll(Arrays.asList(sponsor));
+    }
 
     @Override
     public String toString() {

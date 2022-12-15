@@ -33,4 +33,9 @@ public abstract class Driver {
     abstract String start();
     abstract String stop();
     abstract String refuel();
+
+    @Override
+    public String toString() {
+        return "Имя водителя " + getName();
+    }
 }

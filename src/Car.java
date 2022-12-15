@@ -19,6 +19,7 @@ public class Car extends Transport implements Competing{
         this.bodyType = bodyType;
     }
 
+
     public BodyType getBodyType() {
         return bodyType;
     }
